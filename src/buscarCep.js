@@ -1,9 +1,8 @@
 function buscarInformacoesCep(cep) {
-    fetch(`https://viacep.com.br/ws/${cep}/json`)
+    return fetch(`https://viacep.com.br/ws/${cep}/json`)
     .then(async (response) => await response.json() )
     .then((data) =>  {
-        console.log(data)
-       // if(data.erro === true) return null
+       if(data.erro === true) return null
         return data
     })
     .catch(() => {

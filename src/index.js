@@ -33,13 +33,14 @@ async function realizarEmprestimo() {
     const juros = calcularEmprestimoJurosSimples(dinheiro, tempo, taxaAnual)
     console.log("JUROS", juros)
     console.log("Total", dinheiro + juros)
+    input.close()
 }
 
 async function cep() {
     const cep = await input.question("Qual é o seu cep ?")
-    const resultado = buscarInformacoesCep(cep)
-    console.log(resultado)
-    if(!resultado) { /* ....... */ }
+    const resultado = await buscarInformacoesCep(cep)
+    console.log("Resultado", resultado)
+    input.close()
 }
 
 cep()
